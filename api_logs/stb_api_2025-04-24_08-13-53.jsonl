@@ -1,1 +1,0 @@
-{"type": "request", "timestamp": "2025-04-24T08:13:53.499719", "request_id": 31863977, "command": "CMD_GET_LIST_EPG", "destination": "10.30.5.197:25671", "payload": {"id": 31863977, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_LIST_EPG", "description": "Get LIST EPG for given service ID", "payload": {"service_id": 4431}}}

@@ -1,7 +1,0 @@
-2025-04-24 08:14:03,589 [INFO] API Request [94258123]: Sending CMD_GET_CURRENT_EPG to 10.30.5.197:25671
-2025-04-24 08:14:03,589 [INFO] 
-2025-04-24 08:14:03,589 [INFO] Sending packet (170 bytes)
-2025-04-24 08:14:03,590 [DEBUG] Starting to receive response packets
-2025-04-24 08:14:08,591 [WARNING] Socket timeout while receiving packets
-2025-04-24 08:14:08,592 [ERROR] Incomplete response: 0/unknown packets received
-2025-04-24 08:14:08,592 [WARNING] No complete response received

@@ -1,2 +1,0 @@
-{"type": "request", "timestamp": "2025-04-23T15:33:16.408076", "request_id": 90077388, "command": "CH_DOWN", "destination": "10.30.5.154:25671", "payload": {"id": 90077388, "command": "CH_DOWN", "description": "Simple channel down."}}
-{"type": "response_text", "timestamp": "2025-04-23T15:33:18.335952", "request_id": 90077388, "command": "CH_DOWN", "response_size": 110, "response_text": "Command received: 750051288:msg:{\"id\": 90077388, \"command\": \"CH_DOWN\", \"description\": \"Simple channel down.\"}\n"}

@@ -1,8 +1,0 @@
-{
-  "id": 57137256,
-  "command": "FORCE_CH_SWITCH",
-  "description": "Forces a channel switch to a given service.",
-  "payload": {
-    "service_id": 4431
-  }
-}

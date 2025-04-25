@@ -1,1 +1,0 @@
-{"type": "request", "timestamp": "2025-04-23T09:40:14.580646", "request_id": 79564694, "command": "START_PLAYBACK", "destination": "10.30.5.154:25671", "payload": {"id": 79564694, "command": "START_PLAYBACK", "description": "Starts playback of a given service for a specified time period.", "trigger_time": 1745426434, "payload": {"service_id": 4431, "duration": 60}}}

@@ -1,8 +1,0 @@
-2025-04-23 09:40:14,580 [INFO] API Request [79564694]: Sending START_PLAYBACK to 10.30.5.154:25671
-2025-04-23 09:40:14,580 [INFO] 
-2025-04-23 09:40:14,580 [INFO] Sending packet (218 bytes)
-2025-04-23 09:40:14,580 [DEBUG] Starting to receive response packets
-2025-04-23 09:40:14,621 [DEBUG] Received packet 1: 3 bytes from ('10.30.5.154', 25671)
-2025-04-23 09:40:14,621 [DEBUG] Received END packet
-2025-04-23 09:40:14,621 [ERROR] Incomplete response: 0/unknown packets received
-2025-04-23 09:40:14,621 [WARNING] No complete response received

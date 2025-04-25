@@ -1,1 +1,0 @@
-{"type": "request", "timestamp": "2025-04-24T08:14:33.852137", "request_id": 71699845, "command": "CMD_REBOOT_STB", "destination": "10.30.5.197:25671", "payload": {"id": 71699845, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_REBOOT_STB"}}

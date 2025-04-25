@@ -1,1 +1,0 @@
-0/1:Command received: 750051288:msg:{"id": 47540279, "command": "DELETE_RECORDING", "description": "Deletes a recording.", "trigger_time": 0, "payload": {"recording_uuid": "9f6d45b1-0147-4048-b361-3839e65294c6"}}

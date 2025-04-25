@@ -1,8 +1,0 @@
-{
-  "id": 12429384,
-  "command": "ALLOW_PLAYBACK",
-  "description": "Allow playback of a given service immediately.",
-  "payload": {
-    "service_id": 4431
-  }
-}

@@ -1,9 +1,0 @@
-Command received: 750051288:msg:{"id": 10084123, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_RECORDING_LIST", "description": "Get detailed list of recordings"}
-
-{
-  "command": "CMD_GET_RECORDING_LIST",
-  "id": 10084123,
-  "message": "No recordings found.",
-  "status": "error",
-  "timestamp": 1745426446534
-}

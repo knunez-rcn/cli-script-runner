@@ -1,9 +1,0 @@
-0/1:Command received: 750051288:msg:{"id": 70119482, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_CURRENT_EPG", "description": "Get CURRENT EPG for given service ID", "payload": {"service_id": 4431}}
-
-{
-  "command": "CMD_GET_CURRENT_EPG",
-  "id": 70119482,
-  "message": "Channel not found for the provided service ID: 4431",
-  "status": "error",
-  "timestamp": 1745426472093
-}

@@ -9,6 +9,9 @@
 ###< symfony/framework-bundle ###
 .env
 .env.dev
-/src/Domain/Python/ModifiedScripts/Python/api_logs/
-/src/Domain/Python/ModifiedScripts/Python/ModifiedScripts/
-/src/Domain/Python/ModifiedScripts/Python/OriginalScripts/
+/vendor
+/.venv
+/var
+/src/Domain/Python/ModifiedScripts/Python/api_logs
+/src/Domain/Python/ModifiedScripts/Python/ModifiedScripts
+/src/Domain/Python/ModifiedScripts/Python/OriginalScripts

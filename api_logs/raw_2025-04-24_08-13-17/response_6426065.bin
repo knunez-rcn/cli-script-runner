@@ -1,9 +1,0 @@
-Command received: 750051288:msg:{"id": 6426065, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_REMOVE_TIMER", "description": "Remove Timer from the timer list", "payload": {"eventId": 15903}}
-
-{
-  "command": "CMD_REMOVE_TIMER",
-  "id": 6426065,
-  "message": "Failed to remove timer.",
-  "status": "error",
-  "timestamp": 1745507598662
-}

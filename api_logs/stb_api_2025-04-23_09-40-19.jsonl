@@ -1,1 +1,0 @@
-{"type": "request", "timestamp": "2025-04-23T09:40:19.697901", "request_id": 49507254, "command": "BLOCK_PLAYBACK", "destination": "10.30.5.154:25671", "payload": {"id": 49507254, "command": "BLOCK_PLAYBACK", "description": "Block playback of a given service for a specified time period.", "trigger_time": 1745426439, "payload": {"service_id": 4431, "duration": 60}}}

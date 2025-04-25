@@ -1,9 +1,0 @@
-Command received: 750051288:msg:{"id": 83485643, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_UPDATE_RECORDING", "description": "Update recording if it can be removed or not", "payload": {"recording_uuid": "1936761a-3cfd-496c-9f9a-bc5de73ce330", "removable": true}}
-
-{
-  "command": "CMD_UPDATE_RECORDING",
-  "id": 83485643,
-  "message": "No recordings available for modification.",
-  "status": "error",
-  "timestamp": 1745339292245
-}

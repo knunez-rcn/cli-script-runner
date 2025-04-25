@@ -1,2 +1,0 @@
-{"type": "request", "timestamp": "2025-04-23T15:33:23.411287", "request_id": 50691163, "command": "CH_UP", "destination": "10.30.5.154:25671", "payload": {"id": 50691163, "command": "CH_UP", "description": "Simple channel up."}}
-{"type": "response_text", "timestamp": "2025-04-23T15:33:23.531975", "request_id": 50691163, "command": "CH_UP", "response_size": 106, "response_text": "Command received: 750051288:msg:{\"id\": 50691163, \"command\": \"CH_UP\", \"description\": \"Simple channel up.\"}\n"}

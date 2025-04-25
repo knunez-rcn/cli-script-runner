@@ -1,1 +1,0 @@
-Command received: 750051288:msg:{"id": 97292359, "command": "FORCE_RECORD_EVENT", "description": "Forces a recording within a specified time period for a given service.", "payload": {"service_id": 4432, "record_start": 1745339244, "record_stop": 1745339284}}

@@ -1,9 +1,0 @@
-0/1:Command received: 750051288:msg:{"id": 30243391, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_SEARCH_EPG", "description": "Search in EPG Events title list for a given text. Return array of the eventIds.", "payload": {"epg_title": "internet", "service_id": 4431}}
-
-{
-  "command": "CMD_GET_SEARCH_EPG",
-  "id": 30243391,
-  "message": "Failed to search EPG data: No channel found for the provided service ID.",
-  "status": "error",
-  "timestamp": 1745447742327
-}

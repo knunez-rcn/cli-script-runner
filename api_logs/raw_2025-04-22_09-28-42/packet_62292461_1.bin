@@ -1,9 +1,0 @@
-0/1:Command received: 750051288:msg:{"id": 62292461, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_REBOOT_STB"}
-
-{
-  "command": "CMD_REBOOT_STB",
-  "id": 62292461,
-  "message": "Reboot STB OK in 5 seconds!",
-  "status": "success",
-  "timestamp": 1745339322994
-}
