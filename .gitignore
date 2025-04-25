@@ -7,11 +7,15 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+# Environment files
 .env
 .env.dev
-/vendor
+
+# Python
 /.venv
-/var
-/src/Domain/Python/ModifiedScripts/Python/api_logs
-/src/Domain/Python/ModifiedScripts/Python/ModifiedScripts
-/src/Domain/Python/ModifiedScripts/Python/OriginalScripts
+
+# Project-specific directories
+/src/Domain/Python/ModifiedScripts/Python/api_logs/
+/src/Domain/Python/ModifiedScripts/Python/ModifiedScripts/
+/src/Domain/Python/ModifiedScripts/Python/OriginalScripts/
