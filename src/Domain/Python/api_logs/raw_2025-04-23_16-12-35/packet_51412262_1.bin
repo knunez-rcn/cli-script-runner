@@ -1,0 +1,23 @@
+0/1:Command received: 750051288:msg:{"id": 51412262, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_CURRENT_EPG", "description": "Get CURRENT EPG for current playback"}
+
+{
+  "command": "CMD_GET_CURRENT_EPG",
+  "details": {
+    "channelName": "Channel 5",
+    "durationTimeUtcMillis": 0,
+    "endTimeUtcMillis": 0,
+    "eventId": 0,
+    "longDescription": "",
+    "reamingTimeUtcMillis": 0,
+    "recordTimer": false,
+    "s_id": 105,
+    "shortDescription": "",
+    "startTimeUtcMillis": 0,
+    "timerStatusPass": false,
+    "title": ""
+  },
+  "id": 51412262,
+  "message": "Successfully retrieved EPG data.",
+  "status": "success",
+  "timestamp": 1745449955987
+}

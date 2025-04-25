@@ -65,7 +65,7 @@ port = 25671
 # Pernament API key used for Fanthom
 api_key = "dca15ceb-39c9-49f8-a0a6-a85c7402af6e"
 
-def setup_logging(log_dir="./api_logs"):
+def setup_logging(log_dir="./../api_logs"):
     """Configure comprehensive logging for API interactions"""
     # Create log directory if it doesn't exist
     os.makedirs(log_dir, exist_ok=True)

@@ -31,7 +31,7 @@ class TestPythonCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
 //        $scriptPath = __DIR__ . '/../../remote_control_stb.py';
-        $scriptPath = __DIR__ . '/../Domain/modifiedScripts/remote_control_stb.py';
+        $scriptPath = __DIR__ . '/../Domain/ModifiedScripts/remote_control_stb.py';
 
         $saveToFile = $input->getOption('save');
 
@@ -49,7 +49,7 @@ class TestPythonCommand extends Command
         $output->writeln('<info>Python script output:</info>');
 
         $process = new Process(['python3', $scriptPath]);
-//        if (str_contains($scriptPath, 'Domain/modifiedScripts/')) {
+//        if (str_contains($scriptPath, 'Domain/ModifiedScripts/')) {
 //            $process = new Process(['python3', escapeshellarg($scriptPath)]);
 //        }
 
