@@ -1,0 +1,6 @@
+{
+  "id": 67139169,
+  "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e",
+  "command": "CMD_GET_SCREENSHOT",
+  "description": "Get a screenshot from OSD only ( no VIDEO ) from the STB"
+}

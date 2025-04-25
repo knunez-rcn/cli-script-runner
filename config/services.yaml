@@ -11,6 +11,21 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
+    LoggerInterface: '@logger' # use the logger service as a default logger
+
+#    monolog.handler.python_tests:
+#        class: Monolog\Handler\RotatingFileHandler
+#        arguments:
+#            - '%kernel.logs_dir%/python_tests.log'
+#            - 10
+#            - info
+#        calls:
+#            - [ setFormatter, [ '@monolog.formatter.detailed' ] ]
+#
+#    monolog.formatter.detailed:
+#        class: Monolog\Formatter\LineFormatter
+#        arguments:
+#            - "[%%datetime%%] [%%level_name%%]: %%message%% %%context%% %%extra%%\n"
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:

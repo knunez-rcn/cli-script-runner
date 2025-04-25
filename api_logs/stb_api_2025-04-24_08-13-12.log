@@ -1,0 +1,18 @@
+2025-04-24 08:13:12,459 [INFO] API Request [59684919]: Sending CMD_GET_TIMER_LIST to 10.30.5.197:25671
+2025-04-24 08:13:12,459 [INFO] 
+2025-04-24 08:13:12,459 [INFO] Sending packet (156 bytes)
+2025-04-24 08:13:12,459 [DEBUG] Starting to receive response packets
+2025-04-24 08:13:12,499 [DEBUG] Received packet 1: 323 bytes from ('10.30.5.197', 25671)
+2025-04-24 08:13:12,499 [DEBUG] Processed packet 0/1
+2025-04-24 08:13:12,499 [INFO] All 1 packets received
+2025-04-24 08:13:12,499 [INFO] Received complete response (319 bytes)
+2025-04-24 08:13:12,499 [DEBUG] Response content: Command received: 750051288:msg:{"id": 59684919, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_TIMER_LIST", "description": "Get Schedule Timer List"}
+
+{
+  "command": "CMD_GET_TIMER_LIST",
+  "id": 59684919,
+  "message": "Timer list is empty.",
+  "status": "error",
+  "timestamp": 1745507593095
+}
+2025-04-24 08:13:12,499 [INFO] 

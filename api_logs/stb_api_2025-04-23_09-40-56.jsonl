@@ -1,0 +1,1 @@
+{"type": "request", "timestamp": "2025-04-23T09:40:56.181418", "request_id": 906473, "command": "CMD_SEND_BUTTON_KEY", "destination": "10.30.5.154:25671", "payload": {"id": 906473, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_SEND_BUTTON_KEY", "description": "Send KEY button press to STB", "payload": {"button_key": "UP"}}}

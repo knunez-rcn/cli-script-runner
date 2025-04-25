@@ -1,0 +1,18 @@
+2025-04-23 15:34:40,984 [INFO] API Request [93235768]: Sending CMD_GET_RECORDING_CURRENT_STATUS to 10.30.5.154:25671
+2025-04-23 15:34:40,984 [INFO] 
+2025-04-23 15:34:40,985 [INFO] Sending packet (195 bytes)
+2025-04-23 15:34:40,985 [DEBUG] Starting to receive response packets
+2025-04-23 15:34:41,009 [DEBUG] Received packet 1: 380 bytes from ('10.30.5.154', 25671)
+2025-04-23 15:34:41,009 [DEBUG] Processed packet 0/1
+2025-04-23 15:34:41,009 [INFO] All 1 packets received
+2025-04-23 15:34:41,010 [INFO] Received complete response (376 bytes)
+2025-04-23 15:34:41,010 [DEBUG] Response content: Command received: 750051288:msg:{"id": 93235768, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_RECORDING_CURRENT_STATUS", "description": "Get information about currenty playing recording"}
+
+{
+  "command": "CMD_GET_RECORDING_CURRENT_STATUS",
+  "id": 93235768,
+  "message": "Recording is not playing",
+  "status": "error",
+  "timestamp": 1745447681041
+}
+2025-04-23 15:34:41,010 [INFO] 

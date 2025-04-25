@@ -1,0 +1,18 @@
+2025-04-24 08:12:52,939 [INFO] API Request [67133982]: Sending CMD_GET_SHORT_RECORDING_LIST to 10.30.5.197:25671
+2025-04-24 08:12:52,940 [INFO] 
+2025-04-24 08:12:52,940 [INFO] Sending packet (171 bytes)
+2025-04-24 08:12:52,940 [DEBUG] Starting to receive response packets
+2025-04-24 08:12:52,998 [DEBUG] Received packet 1: 348 bytes from ('10.30.5.197', 25671)
+2025-04-24 08:12:52,998 [DEBUG] Processed packet 0/1
+2025-04-24 08:12:52,998 [INFO] All 1 packets received
+2025-04-24 08:12:52,998 [INFO] Received complete response (344 bytes)
+2025-04-24 08:12:52,998 [DEBUG] Response content: Command received: 750051288:msg:{"id": 67133982, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_SHORT_RECORDING_LIST", "description": "Get short list of DVR movies"}
+
+{
+  "command": "CMD_GET_SHORT_RECORDING_LIST",
+  "id": 67133982,
+  "message": "No recordings found.",
+  "status": "error",
+  "timestamp": 1745507573604
+}
+2025-04-24 08:12:52,998 [INFO] 

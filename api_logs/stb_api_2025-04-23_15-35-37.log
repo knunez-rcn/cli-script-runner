@@ -1,0 +1,18 @@
+2025-04-23 15:35:37,127 [INFO] API Request [84886998]: Sending CMD_UPDATE_RECORDING to 10.30.5.154:25671
+2025-04-23 15:35:37,127 [INFO] 
+2025-04-23 15:35:37,127 [INFO] Sending packet (269 bytes)
+2025-04-23 15:35:37,128 [DEBUG] Starting to receive response packets
+2025-04-23 15:35:37,172 [DEBUG] Received packet 1: 459 bytes from ('10.30.5.154', 25671)
+2025-04-23 15:35:37,172 [DEBUG] Processed packet 0/1
+2025-04-23 15:35:37,172 [INFO] All 1 packets received
+2025-04-23 15:35:37,172 [INFO] Received complete response (455 bytes)
+2025-04-23 15:35:37,172 [DEBUG] Response content: Command received: 750051288:msg:{"id": 84886998, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_UPDATE_RECORDING", "description": "Update recording if it can be removed or not", "payload": {"recording_uuid": "1936761a-3cfd-496c-9f9a-bc5de73ce330", "removable": true}}
+
+{
+  "command": "CMD_UPDATE_RECORDING",
+  "id": 84886998,
+  "message": "No recordings available for modification.",
+  "status": "error",
+  "timestamp": 1745447737204
+}
+2025-04-23 15:35:37,172 [INFO] 

@@ -1,0 +1,11 @@
+2025-04-22 09:26:33,900 [INFO] API Request [70264971]: Sending CH_UP to 10.30.5.70:25671
+2025-04-22 09:26:33,900 [INFO] 
+2025-04-22 09:26:33,900 [INFO] Sending packet (87 bytes)
+2025-04-22 09:26:33,900 [DEBUG] Starting to receive response packets
+2025-04-22 09:26:33,934 [DEBUG] Received packet 1: 110 bytes from ('10.30.5.70', 25671)
+2025-04-22 09:26:33,934 [DEBUG] Processed packet 0/1
+2025-04-22 09:26:33,934 [INFO] All 1 packets received
+2025-04-22 09:26:33,935 [INFO] Received complete response (106 bytes)
+2025-04-22 09:26:33,935 [DEBUG] Response content: Command received: 750051288:msg:{"id": 70264971, "command": "CH_UP", "description": "Simple channel up."}
+
+2025-04-22 09:26:33,935 [INFO] 

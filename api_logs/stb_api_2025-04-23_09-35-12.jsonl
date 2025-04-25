@@ -1,0 +1,1 @@
+{"type": "request", "timestamp": "2025-04-23T09:35:12.807454", "request_id": 80480763, "command": "CH_DOWN", "destination": "10.30.5.154:25671", "payload": {"id": 80480763, "command": "CH_DOWN", "description": "Simple channel down."}}

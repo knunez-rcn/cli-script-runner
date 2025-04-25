@@ -1,0 +1,11 @@
+2025-04-23 15:35:57,737 [INFO] API Request [28966612]: Sending ALLOW_PLAYBACK to 10.30.5.154:25671
+2025-04-23 15:35:57,737 [INFO] 
+2025-04-23 15:35:57,737 [INFO] Sending packet (157 bytes)
+2025-04-23 15:35:57,737 [DEBUG] Starting to receive response packets
+2025-04-23 15:35:57,789 [DEBUG] Received packet 1: 180 bytes from ('10.30.5.154', 25671)
+2025-04-23 15:35:57,789 [DEBUG] Processed packet 0/1
+2025-04-23 15:35:57,789 [INFO] All 1 packets received
+2025-04-23 15:35:57,789 [INFO] Received complete response (176 bytes)
+2025-04-23 15:35:57,789 [DEBUG] Response content: Command received: 750051288:msg:{"id": 28966612, "command": "ALLOW_PLAYBACK", "description": "Allow playback of a given service immediately.", "payload": {"service_id": 4431}}
+
+2025-04-23 15:35:57,789 [INFO] 

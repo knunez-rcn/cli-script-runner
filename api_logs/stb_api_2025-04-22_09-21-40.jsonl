@@ -1,0 +1,1 @@
+{"type": "request", "timestamp": "2025-04-22T09:21:40.802136", "request_id": 34653456, "command": "FORCE_CH_SWITCH", "destination": "10.30.5.70:25671", "payload": {"id": 34653456, "command": "FORCE_CH_SWITCH", "description": "Forces a channel switch to a given service.", "payload": {"service_id": 4431}}}

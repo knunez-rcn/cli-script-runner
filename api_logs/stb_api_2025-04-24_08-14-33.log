@@ -1,0 +1,7 @@
+2025-04-24 08:14:33,851 [INFO] API Request [71699845]: Sending CMD_REBOOT_STB to 10.30.5.197:25671
+2025-04-24 08:14:33,852 [INFO] 
+2025-04-24 08:14:33,852 [INFO] Sending packet (110 bytes)
+2025-04-24 08:14:33,852 [DEBUG] Starting to receive response packets
+2025-04-24 08:14:38,853 [WARNING] Socket timeout while receiving packets
+2025-04-24 08:14:38,853 [ERROR] Incomplete response: 0/unknown packets received
+2025-04-24 08:14:38,853 [WARNING] No complete response received

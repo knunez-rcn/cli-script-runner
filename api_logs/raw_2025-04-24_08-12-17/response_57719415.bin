@@ -1,0 +1,12 @@
+Command received: 750051288:msg:{"id": 57719415, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_FORCE_SET_CH_SOURCE", "description": "Set Channel source by Manual: OTT | SAT | UDP | AUTO", "payload": {"mode": "SAT"}}
+
+{
+  "command": "CMD_FORCE_SET_CH_SOURCE",
+  "details": {
+    "mode": "SAT"
+  },
+  "id": 57719415,
+  "message": "Live TV is not playing",
+  "status": "error",
+  "timestamp": 1745507538239
+}

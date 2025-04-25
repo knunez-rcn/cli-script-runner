@@ -1,0 +1,7 @@
+2025-04-24 08:14:13,680 [INFO] API Request [40527273]: Sending ALLOW_PLAYBACK to 10.30.5.197:25671
+2025-04-24 08:14:13,680 [INFO] 
+2025-04-24 08:14:13,680 [INFO] Sending packet (157 bytes)
+2025-04-24 08:14:13,680 [DEBUG] Starting to receive response packets
+2025-04-24 08:14:18,682 [WARNING] Socket timeout while receiving packets
+2025-04-24 08:14:18,682 [ERROR] Incomplete response: 0/unknown packets received
+2025-04-24 08:14:18,682 [WARNING] No complete response received

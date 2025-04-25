@@ -1,0 +1,18 @@
+2025-04-23 15:35:47,379 [INFO] API Request [41082333]: Sending CMD_GET_LIST_EPG to 10.30.5.154:25671
+2025-04-23 15:35:47,380 [INFO] 
+2025-04-23 15:35:47,380 [INFO] Sending packet (197 bytes)
+2025-04-23 15:35:47,380 [DEBUG] Starting to receive response packets
+2025-04-23 15:35:47,478 [DEBUG] Received packet 1: 375 bytes from ('10.30.5.154', 25671)
+2025-04-23 15:35:47,478 [DEBUG] Processed packet 0/1
+2025-04-23 15:35:47,478 [INFO] All 1 packets received
+2025-04-23 15:35:47,478 [INFO] Received complete response (371 bytes)
+2025-04-23 15:35:47,478 [DEBUG] Response content: Command received: 750051288:msg:{"id": 41082333, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_LIST_EPG", "description": "Get LIST EPG for given service ID", "payload": {"service_id": 4431}}
+
+{
+  "command": "CMD_GET_LIST_EPG",
+  "id": 41082333,
+  "message": "Failed to retrieve EPG List data.",
+  "status": "error",
+  "timestamp": 1745447747505
+}
+2025-04-23 15:35:47,478 [INFO] 

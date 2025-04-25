@@ -1,0 +1,10 @@
+{
+  "id": 79564694,
+  "command": "START_PLAYBACK",
+  "description": "Starts playback of a given service for a specified time period.",
+  "trigger_time": 1745426434,
+  "payload": {
+    "service_id": 4431,
+    "duration": 60
+  }
+}

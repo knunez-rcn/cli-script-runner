@@ -1,0 +1,19 @@
+2025-04-23 15:36:02,867 [INFO] API Request [24323212]: Sending HELLO_DISCOVERY to 10.30.5.154:25671
+2025-04-23 15:36:02,867 [INFO] 
+2025-04-23 15:36:02,868 [INFO] Sending packet (60 bytes)
+2025-04-23 15:36:02,868 [DEBUG] Starting to receive response packets
+2025-04-23 15:36:02,935 [DEBUG] Received packet 1: 471 bytes from ('10.30.5.154', 25671)
+2025-04-23 15:36:02,935 [DEBUG] Processed packet 0/1
+2025-04-23 15:36:02,935 [INFO] All 1 packets received
+2025-04-23 15:36:02,935 [INFO] Received complete response (467 bytes)
+2025-04-23 15:36:02,935 [DEBUG] Response content: Command received: 750051288:msg:{"id": 24323212, "command": "HELLO_DISCOVERY"}
+{
+  "stb_chip_id": "750051288",
+  "tuner_sw_info": "0.0.1.4.16551",
+  "tuner_sw_build_info": "4 Apr 2025 21:24:54 GMT in GMT--4",
+  "device_info": "RCN/oppen/oppen:11/RD2A.211001.002/eng.paul.20250405.031235:user/test-keys",
+  "apk_version": "4.T20250405.0-rev-12a8c20bf",
+  "ipAssignment": ": DHCP is active and IP is assigned: 10.30.5.154 (Wi-Fi)",
+  "date": "2025-04-23T15:36:02.967"
+}
+2025-04-23 15:36:02,935 [INFO] 

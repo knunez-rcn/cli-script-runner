@@ -1,0 +1,26 @@
+2025-04-22 09:27:25,785 [INFO] API Request [10019658]: Sending CMD_GET_TUNER_STATUS to 10.30.5.70:25671
+2025-04-22 09:27:25,785 [INFO] 
+2025-04-22 09:27:25,785 [INFO] Sending packet (165 bytes)
+2025-04-22 09:27:25,786 [DEBUG] Starting to receive response packets
+2025-04-22 09:27:25,813 [DEBUG] Received packet 1: 475 bytes from ('10.30.5.70', 25671)
+2025-04-22 09:27:25,813 [DEBUG] Processed packet 0/1
+2025-04-22 09:27:25,813 [INFO] All 1 packets received
+2025-04-22 09:27:25,814 [INFO] Received complete response (471 bytes)
+2025-04-22 09:27:25,814 [DEBUG] Response content: Command received: 750051288:msg:{"id": 10019658, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_TUNER_STATUS", "description": "Get current dvb-s tuner status"}
+
+{
+  "command": "CMD_GET_TUNER_STATUS",
+  "details": {
+    "agc": 0,
+    "freq": 11218,
+    "mode": 0,
+    "snr": 0,
+    "sr": 26000,
+    "status": "0"
+  },
+  "id": 10019658,
+  "message": "Successfully retrieved DVB-S tuner status.",
+  "status": "success",
+  "timestamp": 1745339246336
+}
+2025-04-22 09:27:25,814 [INFO] 

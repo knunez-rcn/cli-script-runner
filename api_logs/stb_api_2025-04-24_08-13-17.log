@@ -1,0 +1,18 @@
+2025-04-24 08:13:17,588 [INFO] API Request [6426065]: Sending CMD_REMOVE_TIMER to 10.30.5.197:25671
+2025-04-24 08:13:17,588 [INFO] 
+2025-04-24 08:13:17,588 [INFO] Sending packet (193 bytes)
+2025-04-24 08:13:17,588 [DEBUG] Starting to receive response packets
+2025-04-24 08:13:18,152 [DEBUG] Received packet 1: 360 bytes from ('10.30.5.197', 25671)
+2025-04-24 08:13:18,152 [DEBUG] Processed packet 0/1
+2025-04-24 08:13:18,152 [INFO] All 1 packets received
+2025-04-24 08:13:18,153 [INFO] Received complete response (356 bytes)
+2025-04-24 08:13:18,153 [DEBUG] Response content: Command received: 750051288:msg:{"id": 6426065, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_REMOVE_TIMER", "description": "Remove Timer from the timer list", "payload": {"eventId": 15903}}
+
+{
+  "command": "CMD_REMOVE_TIMER",
+  "id": 6426065,
+  "message": "Failed to remove timer.",
+  "status": "error",
+  "timestamp": 1745507598662
+}
+2025-04-24 08:13:18,153 [INFO] 

@@ -1,0 +1,11 @@
+{
+  "id": 90484496,
+  "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e",
+  "command": "CMD_ADD_TIMER",
+  "description": "Add Timer to the timer list",
+  "payload": {
+    "service_id": 4431,
+    "eventId": 15903,
+    "recordTimer": true
+  }
+}

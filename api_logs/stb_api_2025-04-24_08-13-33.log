@@ -1,0 +1,7 @@
+2025-04-24 08:13:33,300 [INFO] API Request [71998303]: Sending CMD_UPDATE_RECORDING to 10.30.5.197:25671
+2025-04-24 08:13:33,300 [INFO] 
+2025-04-24 08:13:33,300 [INFO] Sending packet (269 bytes)
+2025-04-24 08:13:33,300 [DEBUG] Starting to receive response packets
+2025-04-24 08:13:38,301 [WARNING] Socket timeout while receiving packets
+2025-04-24 08:13:38,301 [ERROR] Incomplete response: 0/unknown packets received
+2025-04-24 08:13:38,302 [WARNING] No complete response received

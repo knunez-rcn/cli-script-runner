@@ -1,0 +1,11 @@
+2025-04-22 09:26:39,028 [INFO] API Request [35838219]: Sending FORCE_CH_SWITCH to 10.30.5.70:25671
+2025-04-22 09:26:39,028 [INFO] 
+2025-04-22 09:26:39,029 [INFO] Sending packet (155 bytes)
+2025-04-22 09:26:39,029 [DEBUG] Starting to receive response packets
+2025-04-22 09:26:39,065 [DEBUG] Received packet 1: 178 bytes from ('10.30.5.70', 25671)
+2025-04-22 09:26:39,065 [DEBUG] Processed packet 0/1
+2025-04-22 09:26:39,065 [INFO] All 1 packets received
+2025-04-22 09:26:39,065 [INFO] Received complete response (174 bytes)
+2025-04-22 09:26:39,065 [DEBUG] Response content: Command received: 750051288:msg:{"id": 35838219, "command": "FORCE_CH_SWITCH", "description": "Forces a channel switch to a given service.", "payload": {"service_id": 4431}}
+
+2025-04-22 09:26:39,065 [INFO] 

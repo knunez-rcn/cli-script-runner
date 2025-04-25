@@ -1,0 +1,1 @@
+{"type": "request", "timestamp": "2025-04-22T09:27:09.757642", "request_id": 87061747, "command": "CMD_GET_SCREENSHOT", "destination": "10.30.5.70:25671", "payload": {"id": 87061747, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_SCREENSHOT", "description": "Get a screenshot from OSD only ( no VIDEO ) from the STB"}}

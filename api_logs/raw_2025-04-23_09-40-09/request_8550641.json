@@ -1,0 +1,10 @@
+{
+  "id": 8550641,
+  "command": "FORCE_RECORD_EVENT",
+  "description": "Forces a recording within a specified time period for a given service.",
+  "payload": {
+    "service_id": 4432,
+    "record_start": 1745426449,
+    "record_stop": 1745426489
+  }
+}

@@ -1,0 +1,21 @@
+2025-04-22 09:27:30,885 [INFO] API Request [16273611]: Sending CMD_SEND_BUTTON_KEY to 10.30.5.70:25671
+2025-04-22 09:27:30,885 [INFO] 
+2025-04-22 09:27:30,886 [INFO] Sending packet (195 bytes)
+2025-04-22 09:27:30,886 [DEBUG] Starting to receive response packets
+2025-04-22 09:27:30,910 [DEBUG] Received packet 1: 422 bytes from ('10.30.5.70', 25671)
+2025-04-22 09:27:30,910 [DEBUG] Processed packet 0/1
+2025-04-22 09:27:30,910 [INFO] All 1 packets received
+2025-04-22 09:27:30,910 [INFO] Received complete response (418 bytes)
+2025-04-22 09:27:30,910 [DEBUG] Response content: Command received: 750051288:msg:{"id": 16273611, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_SEND_BUTTON_KEY", "description": "Send KEY button press to STB", "payload": {"button_key": "UP"}}
+
+{
+  "command": "CMD_SEND_BUTTON_KEY",
+  "details": {
+    "button_key": "UP",
+    "timestamp": 1745339251434
+  },
+  "id": 16273611,
+  "message": "Button key UP successfully sent.",
+  "status": "success"
+}
+2025-04-22 09:27:30,910 [INFO] 

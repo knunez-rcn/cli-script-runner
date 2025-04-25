@@ -1,0 +1,7 @@
+2025-04-23 15:35:27,045 [INFO] API Request [70844744]: Sending CMD_ADD_TIMER to 10.30.5.154:25671
+2025-04-23 15:35:27,045 [INFO] 
+2025-04-23 15:35:27,046 [INFO] Sending packet (227 bytes)
+2025-04-23 15:35:27,046 [DEBUG] Starting to receive response packets
+2025-04-23 15:35:32,047 [WARNING] Socket timeout while receiving packets
+2025-04-23 15:35:32,048 [ERROR] Incomplete response: 0/unknown packets received
+2025-04-23 15:35:32,048 [WARNING] No complete response received

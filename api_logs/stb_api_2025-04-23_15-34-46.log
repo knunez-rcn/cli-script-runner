@@ -1,0 +1,18 @@
+2025-04-23 15:34:46,088 [INFO] API Request [98299569]: Sending CMD_GET_RECORDING_LIST to 10.30.5.154:25671
+2025-04-23 15:34:46,089 [INFO] 
+2025-04-23 15:34:46,089 [INFO] Sending packet (168 bytes)
+2025-04-23 15:34:46,089 [DEBUG] Starting to receive response packets
+2025-04-23 15:34:46,114 [DEBUG] Received packet 1: 339 bytes from ('10.30.5.154', 25671)
+2025-04-23 15:34:46,114 [DEBUG] Processed packet 0/1
+2025-04-23 15:34:46,114 [INFO] All 1 packets received
+2025-04-23 15:34:46,114 [INFO] Received complete response (335 bytes)
+2025-04-23 15:34:46,114 [DEBUG] Response content: Command received: 750051288:msg:{"id": 98299569, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_RECORDING_LIST", "description": "Get detailed list of recordings"}
+
+{
+  "command": "CMD_GET_RECORDING_LIST",
+  "id": 98299569,
+  "message": "No recordings found.",
+  "status": "error",
+  "timestamp": 1745447686141
+}
+2025-04-23 15:34:46,114 [INFO] 

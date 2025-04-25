@@ -1,0 +1,12 @@
+Command received: 750051288:msg:{"id": 96239628, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_SEND_BUTTON_KEY", "description": "Send KEY button press to STB", "payload": {"button_key": "UP"}}
+
+{
+  "command": "CMD_SEND_BUTTON_KEY",
+  "details": {
+    "button_key": "UP",
+    "timestamp": 1745507568475
+  },
+  "id": 96239628,
+  "message": "Button key UP successfully sent.",
+  "status": "success"
+}

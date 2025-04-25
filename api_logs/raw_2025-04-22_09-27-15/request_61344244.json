@@ -1,0 +1,6 @@
+{
+  "id": 61344244,
+  "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e",
+  "command": "CMD_GET_RECORDING_CURRENT_STATUS",
+  "description": "Get information about currenty playing recording"
+}

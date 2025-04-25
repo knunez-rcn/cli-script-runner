@@ -1,0 +1,1 @@
+{"type": "request", "timestamp": "2025-04-23T09:40:29.922748", "request_id": 74450108, "command": "CMD_FORCE_SET_CH_SOURCE", "destination": "10.30.5.154:25671", "payload": {"id": 74450108, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_FORCE_SET_CH_SOURCE", "description": "Set Channel source by Manual: OTT | SAT | UDP | AUTO", "payload": {"mode": "SAT"}}}

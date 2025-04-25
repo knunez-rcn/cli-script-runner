@@ -1,0 +1,7 @@
+2025-04-22 09:21:20,646 [INFO] API Request [31960166]: Sending CH_DOWN to 10.30.5.70:25671
+2025-04-22 09:21:20,646 [INFO] 
+2025-04-22 09:21:20,646 [INFO] Sending packet (91 bytes)
+2025-04-22 09:21:20,646 [DEBUG] Starting to receive response packets
+2025-04-22 09:21:25,648 [WARNING] Socket timeout while receiving packets
+2025-04-22 09:21:25,648 [ERROR] Incomplete response: 0/unknown packets received
+2025-04-22 09:21:25,649 [WARNING] No complete response received

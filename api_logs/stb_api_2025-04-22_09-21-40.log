@@ -1,0 +1,7 @@
+2025-04-22 09:21:40,801 [INFO] API Request [34653456]: Sending FORCE_CH_SWITCH to 10.30.5.70:25671
+2025-04-22 09:21:40,802 [INFO] 
+2025-04-22 09:21:40,802 [INFO] Sending packet (155 bytes)
+2025-04-22 09:21:40,802 [DEBUG] Starting to receive response packets
+2025-04-22 09:21:45,803 [WARNING] Socket timeout while receiving packets
+2025-04-22 09:21:45,804 [ERROR] Incomplete response: 0/unknown packets received
+2025-04-22 09:21:45,804 [WARNING] No complete response received

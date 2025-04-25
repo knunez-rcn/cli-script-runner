@@ -1,0 +1,18 @@
+2025-04-24 08:12:58,056 [INFO] API Request [50648771]: Sending CMD_PLAY_RECORDING to 10.30.5.197:25671
+2025-04-24 08:12:58,057 [INFO] 
+2025-04-24 08:12:58,057 [INFO] Sending packet (223 bytes)
+2025-04-24 08:12:58,057 [DEBUG] Starting to receive response packets
+2025-04-24 08:12:58,106 [DEBUG] Received packet 1: 402 bytes from ('10.30.5.197', 25671)
+2025-04-24 08:12:58,106 [DEBUG] Processed packet 0/1
+2025-04-24 08:12:58,106 [INFO] All 1 packets received
+2025-04-24 08:12:58,106 [INFO] Received complete response (398 bytes)
+2025-04-24 08:12:58,106 [DEBUG] Response content: Command received: 750051288:msg:{"id": 50648771, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_PLAY_RECORDING", "description": "Play specyfic movie", "payload": {"recording_uuid": "1936761a-3cfd-496c-9f9a-bc5de73ce330"}}
+
+{
+  "command": "CMD_PLAY_RECORDING",
+  "id": 50648771,
+  "message": "No recordings available to play.",
+  "status": "error",
+  "timestamp": 1745507578715
+}
+2025-04-24 08:12:58,106 [INFO] 

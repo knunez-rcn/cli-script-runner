@@ -1,0 +1,9 @@
+0/1:Command received: 750051288:msg:{"id": 55436323, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_PLAY_RECORDING", "description": "Play specyfic movie", "payload": {"recording_uuid": "1936761a-3cfd-496c-9f9a-bc5de73ce330"}}
+
+{
+  "command": "CMD_PLAY_RECORDING",
+  "id": 55436323,
+  "message": "No recordings available to play.",
+  "status": "error",
+  "timestamp": 1745339261677
+}

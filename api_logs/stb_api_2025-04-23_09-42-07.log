@@ -1,0 +1,18 @@
+2025-04-23 09:42:07,737 [INFO] API Request [43077822]: Sending CMD_REBOOT_STB to 10.30.5.154:25671
+2025-04-23 09:42:07,737 [INFO] 
+2025-04-23 09:42:07,738 [INFO] Sending packet (110 bytes)
+2025-04-23 09:42:07,738 [DEBUG] Starting to receive response packets
+2025-04-23 09:42:07,801 [DEBUG] Received packet 1: 282 bytes from ('10.30.5.154', 25671)
+2025-04-23 09:42:07,801 [DEBUG] Processed packet 0/1
+2025-04-23 09:42:07,801 [INFO] All 1 packets received
+2025-04-23 09:42:07,801 [INFO] Received complete response (278 bytes)
+2025-04-23 09:42:07,801 [DEBUG] Response content: Command received: 750051288:msg:{"id": 43077822, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_REBOOT_STB"}
+
+{
+  "command": "CMD_REBOOT_STB",
+  "id": 43077822,
+  "message": "Reboot STB OK in 5 seconds!",
+  "status": "success",
+  "timestamp": 1745426528340
+}
+2025-04-23 09:42:07,801 [INFO] 

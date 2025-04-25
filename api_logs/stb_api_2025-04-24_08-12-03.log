@@ -1,0 +1,11 @@
+2025-04-24 08:12:03,359 [INFO] API Request [49006844]: Sending BLOCK_PLAYBACK to 10.30.5.197:25671
+2025-04-24 08:12:03,359 [INFO] 
+2025-04-24 08:12:03,359 [INFO] Sending packet (217 bytes)
+2025-04-24 08:12:03,359 [DEBUG] Starting to receive response packets
+2025-04-24 08:12:07,351 [DEBUG] Received packet 1: 240 bytes from ('10.30.5.197', 25671)
+2025-04-24 08:12:07,352 [DEBUG] Processed packet 0/1
+2025-04-24 08:12:07,352 [INFO] All 1 packets received
+2025-04-24 08:12:07,353 [INFO] Received complete response (236 bytes)
+2025-04-24 08:12:07,354 [DEBUG] Response content: Command received: 750051288:msg:{"id": 49006844, "command": "BLOCK_PLAYBACK", "description": "Block playback of a given service for a specified time period.", "trigger_time": 1745507543, "payload": {"service_id": 4431, "duration": 60}}
+
+2025-04-24 08:12:07,354 [INFO] 

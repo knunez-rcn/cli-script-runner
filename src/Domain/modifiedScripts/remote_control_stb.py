@@ -48,12 +48,14 @@ import gzip
 from io import BytesIO
 import threading
 
+import traceback
+import logging
 
 # Unique STB ID
 device_id = "750051288"
 
 # Static IP Address of STB We are sending message
-device_ip = "10.30.5.70"
+device_ip = "10.30.5.197"
 # MAC Address of STB to send WOL message
 device_mac = "ac:f4:2c:99:2f:51"
 
@@ -62,6 +64,59 @@ port = 25671
 
 # Pernament API key used for Fanthom
 api_key = "dca15ceb-39c9-49f8-a0a6-a85c7402af6e"
+
+def setup_logging(log_dir="./api_logs"):
+    """Configure comprehensive logging for API interactions"""
+    # Create log directory if it doesn't exist
+    os.makedirs(log_dir, exist_ok=True)
+
+    # Generate timestamped log files
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    log_file = f"{log_dir}/stb_api_{timestamp}.log"
+    json_log_file = f"{log_dir}/stb_api_{timestamp}.jsonl"
+    raw_log_dir = f"{log_dir}/raw_{timestamp}"
+
+    # Create raw data directory
+    os.makedirs(raw_log_dir, exist_ok=True)
+
+    # Configure logger
+    logger = logging.getLogger("stb_api")
+    logger.setLevel(logging.DEBUG)
+
+    # Remove any existing handlers
+    if logger.handlers:
+        logger.handlers.clear()
+
+    # File handler for detailed logs
+    file_handler = logging.FileHandler(log_file)
+    file_handler.setLevel(logging.DEBUG)
+    file_handler.setFormatter(logging.Formatter(
+        '%(asctime)s [%(levelname)s] %(message)s'
+    ))
+    logger.addHandler(file_handler)
+
+    # Console handler for info
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    console_handler.setFormatter(logging.Formatter(
+        '%(levelname)s: %(message)s'
+    ))
+    logger.addHandler(console_handler)
+
+    # JSON log handler
+    class JsonLogHandler(logging.FileHandler):
+        def emit(self, record):
+            # Only process records with our special attribute
+            if hasattr(record, 'json_data'):
+                with open(self.baseFilename, 'a') as f:
+                    json.dump(record.json_data, f)
+                    f.write('\n')
+
+    json_handler = JsonLogHandler(json_log_file)
+    logger.addHandler(json_handler)
+
+    # Return logger and paths for later use
+    return logger, raw_log_dir
 
 # Generate a random UUID
 # NOT USED as it is too long.
@@ -323,110 +378,207 @@ cmd_reboot_stb = {
 #### END OF FANTHOMS CMD's
 
 def send_message(json_message):
+    logger, raw_log_dir = setup_logging()
     server_address = (device_ip, port)
-    # Convert JSON message to string and encode
+    request_id = json_message.get('id', 'unknown')
+    command = json_message.get('command', 'unknown')
+
+    # Log the request
+    logger.info(f"API Request [{request_id}]: Sending {command} to {device_ip}:{port}")
+
+    # Save raw request
+    request_file = f"{raw_log_dir}/request_{request_id}.json"
+    with open(request_file, 'w') as f:
+        json.dump(json_message, f, indent=2)
+
+    # Log structured JSON
+    record = logger.makeRecord(
+        logger.name, logging.INFO, "", 0, "", (), None
+    )
+    record.json_data = {
+        "type": "request",
+        "timestamp": datetime.now().isoformat(),
+        "request_id": request_id,
+        "command": command,
+        "destination": f"{device_ip}:{port}",
+        "payload": json_message
+    }
+    logger.handle(record)
+
+    # Encode and send message
     combined_message = f"{device_id}:msg:{json.dumps(json_message)}"
     encoded_message = combined_message.encode("utf-8")
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    
+
     try:
-        print(f"Sending message to {server_address}")
+        logger.info(f"Sending packet ({len(encoded_message)} bytes)")
         sock.sendto(encoded_message, server_address)
 
-        # Set a timeout for receiving the response
+        # Set timeout
         sock.settimeout(5)
 
-        # Receive and reassemble the response
-        response_data = receive_large_response(sock)
-        if response_data is not None:
-            header_prefix = b"CMD_GET_SCREENSHOT"
-            # If the response starts with the screenshot header, process it accordingly
-            if response_data.startswith(header_prefix):
-                save_if_screenshot(response_data)
-            else:
-                # Otherwise, assume it's a JSON/text response
-                print(f"Received complete response ({len(response_data)} bytes)")
-                try:
-                    print(response_data.decode("utf-8"))
-                except UnicodeDecodeError:
-                    print("Received response is not valid UTF-8 text.")
-        else:
-            print("No complete response received.")
+        # Receive and log response
+        response_data = receive_large_response(sock, logger, raw_log_dir, request_id)
 
-    except socket.timeout:
-        print("No response received within the timeout period.")
-    
+        if response_data is not None:
+            # Save raw response
+            response_file = f"{raw_log_dir}/response_{request_id}.bin"
+            with open(response_file, 'wb') as f:
+                f.write(response_data)
+
+            logger.info(f"Received complete response ({len(response_data)} bytes)")
+
+            # Process response based on type
+            if response_data.startswith(b"CMD_GET_SCREENSHOT"):
+                save_if_screenshot(response_data, logger, raw_log_dir)
+            else:
+                try:
+                    response_text = response_data.decode("utf-8")
+                    logger.debug(f"Response content: {response_text}")
+
+                    # Log structured response
+                    record = logger.makeRecord(
+                        logger.name, logging.INFO, "", 0, "", (), None
+                    )
+
+                    try:
+                        response_json = json.loads(response_text)
+                        record.json_data = {
+                            "type": "response",
+                            "timestamp": datetime.now().isoformat(),
+                            "request_id": request_id,
+                            "command": command,
+                            "response_size": len(response_data),
+                            "response": response_json
+                        }
+                    except json.JSONDecodeError:
+                        record.json_data = {
+                            "type": "response_text",
+                            "timestamp": datetime.now().isoformat(),
+                            "request_id": request_id,
+                            "command": command,
+                            "response_size": len(response_data),
+                            "response_text": response_text
+                        }
+
+                    logger.handle(record)
+                    print(response_text)
+
+                except UnicodeDecodeError:
+                    # Log binary response
+                    logger.error("Response is not valid UTF-8 text")
+                    record = logger.makeRecord(
+                        logger.name, logging.INFO, "", 0, "", (), None
+                    )
+                    record.json_data = {
+                        "type": "binary_response",
+                        "timestamp": datetime.now().isoformat(),
+                        "request_id": request_id,
+                        "command": command,
+                        "response_size": len(response_data),
+                        "response_hex": binascii.hexlify(response_data[:200]).decode() + "..." if len(response_data) > 200 else binascii.hexlify(response_data).decode()
+                    }
+                    logger.handle(record)
+        else:
+            logger.warning("No complete response received")
+
+    except Exception as e:
+        logger.error(f"Error in communication: {str(e)}")
+        logger.debug(traceback.format_exc())
+
+        record = logger.makeRecord(
+            logger.name, logging.ERROR, "", 0, "", (), None
+        )
+        record.json_data = {
+            "type": "error",
+            "timestamp": datetime.now().isoformat(),
+            "request_id": request_id,
+            "command": command,
+            "error": str(e),
+            "traceback": traceback.format_exc()
+        }
+        logger.handle(record)
+
     finally:
         sock.close()
 
-def receive_large_response(sock):
+
+def receive_large_response(sock, logger=None, raw_log_dir=None, request_id=None):
+    """Receives and reassembles multi-packet responses with detailed logging"""
     """
     Receives and reassembles a large UDP response split into multiple packets.
     Each packet is expected to have a header (in ASCII) followed by binary data.
     The header format is assumed to be "seq/total:" where seq and total are integers.
     """
+    if logger is None:
+        logger, raw_log_dir = setup_logging()
+
     received_chunks = {}
     expected_packets = None
+    packet_counter = 0
+
+    logger.debug("Starting to receive response packets")
 
     while True:
         try:
-            packet, addr = sock.recvfrom(65536)  # receive raw bytes
-            # Check for the special END packet
+            packet, addr = sock.recvfrom(65536)
+            packet_counter += 1
+
+            # Save raw packet for debugging
+            if raw_log_dir:
+                packet_file = f"{raw_log_dir}/packet_{request_id}_{packet_counter}.bin"
+                with open(packet_file, 'wb') as f:
+                    f.write(packet)
+
+            # Log packet info
+            logger.debug(f"Received packet {packet_counter}: {len(packet)} bytes from {addr}")
+
+            # Process packet
             if packet == b"END":
-                print("Received END packet. Reassembling response...")
+                logger.debug("Received END packet")
                 break
 
-            # Find the separator (colon) between header and data
             sep_index = packet.find(b":")
             if sep_index == -1:
-                print(f"Invalid packet format (missing ':'): {packet}")
+                logger.warning(f"Invalid packet format (missing separator)")
                 continue
 
-            # Extract and decode header
-            header_bytes = packet[:sep_index]
+            # Extract header
             try:
-                header = header_bytes.decode("utf-8")
-            except UnicodeDecodeError:
-                print("Failed to decode header")
-                continue
-
-            # Header should be in the format "seq/total"
-            if "/" not in header:
-                print(f"Malformed header: {header}")
-                continue
-
-            parts = header.split("/")
-            if len(parts) != 2:
-                print(f"Invalid header parts: {header}")
-                continue
-
-            try:
+                header = packet[:sep_index].decode("utf-8")
+                parts = header.split("/")
                 seq_num = int(parts[0])
                 total_packets = int(parts[1])
-            except ValueError:
-                print(f"Invalid header values: {header}")
+
+                expected_packets = total_packets
+                chunk = packet[sep_index + 1:]
+                received_chunks[seq_num] = chunk
+
+                logger.debug(f"Processed packet {seq_num}/{total_packets}")
+
+                if len(received_chunks) == expected_packets:
+                    logger.info(f"All {expected_packets} packets received")
+                    break
+
+            except Exception as e:
+                logger.warning(f"Error processing packet: {str(e)}")
+                # Save problematic packet for analysis
+                if raw_log_dir:
+                    error_file = f"{raw_log_dir}/error_packet_{request_id}_{packet_counter}.bin"
+                    with open(error_file, 'wb') as f:
+                        f.write(packet)
                 continue
 
-            expected_packets = total_packets
-            # The rest of the packet is the binary chunk.
-            chunk = packet[sep_index + 1:]
-            received_chunks[seq_num] = chunk
-
-            # If we have received all expected packets, we can break.
-            if len(received_chunks) == expected_packets:
-                print("All packets received. Reassembling response...")
-                break
-
         except socket.timeout:
-            print("Socket timeout while receiving packets.")
+            logger.warning("Socket timeout while receiving packets")
             break
 
+    # Reassemble and return full response
     if expected_packets is None or len(received_chunks) != expected_packets:
-        print("Error: Some packets are missing!")
+        logger.error(f"Incomplete response: {len(received_chunks)}/{expected_packets if expected_packets else 'unknown'} packets received")
         return None
 
-    # Reassemble the full response in order of packet sequence
     full_response = b"".join(received_chunks[i] for i in sorted(received_chunks.keys()))
     return full_response
 

@@ -1,0 +1,18 @@
+2025-04-24 08:12:42,653 [INFO] API Request [51519578]: Sending CMD_GET_TUNER_STATUS to 10.30.5.197:25671
+2025-04-24 08:12:42,653 [INFO] 
+2025-04-24 08:12:42,653 [INFO] Sending packet (165 bytes)
+2025-04-24 08:12:42,653 [DEBUG] Starting to receive response packets
+2025-04-24 08:12:42,768 [DEBUG] Received packet 1: 336 bytes from ('10.30.5.197', 25671)
+2025-04-24 08:12:42,768 [DEBUG] Processed packet 0/1
+2025-04-24 08:12:42,768 [INFO] All 1 packets received
+2025-04-24 08:12:42,769 [INFO] Received complete response (332 bytes)
+2025-04-24 08:12:42,769 [DEBUG] Response content: Command received: 750051288:msg:{"id": 51519578, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_TUNER_STATUS", "description": "Get current dvb-s tuner status"}
+
+{
+  "command": "CMD_GET_TUNER_STATUS",
+  "id": 51519578,
+  "message": "Live TV is not playing",
+  "status": "error",
+  "timestamp": 1745507563356
+}
+2025-04-24 08:12:42,769 [INFO] 

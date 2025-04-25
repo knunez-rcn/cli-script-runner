@@ -1,0 +1,11 @@
+2025-04-23 15:33:16,407 [INFO] API Request [90077388]: Sending CH_DOWN to 10.30.5.154:25671
+2025-04-23 15:33:16,408 [INFO] 
+2025-04-23 15:33:16,408 [INFO] Sending packet (91 bytes)
+2025-04-23 15:33:16,408 [DEBUG] Starting to receive response packets
+2025-04-23 15:33:18,333 [DEBUG] Received packet 1: 114 bytes from ('10.30.5.154', 25671)
+2025-04-23 15:33:18,333 [DEBUG] Processed packet 0/1
+2025-04-23 15:33:18,334 [INFO] All 1 packets received
+2025-04-23 15:33:18,335 [INFO] Received complete response (110 bytes)
+2025-04-23 15:33:18,335 [DEBUG] Response content: Command received: 750051288:msg:{"id": 90077388, "command": "CH_DOWN", "description": "Simple channel down."}
+
+2025-04-23 15:33:18,335 [INFO] 

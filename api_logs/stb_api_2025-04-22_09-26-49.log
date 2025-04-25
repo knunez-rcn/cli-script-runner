@@ -1,0 +1,11 @@
+2025-04-22 09:26:49,285 [INFO] API Request [74409627]: Sending START_PLAYBACK to 10.30.5.70:25671
+2025-04-22 09:26:49,285 [INFO] 
+2025-04-22 09:26:49,285 [INFO] Sending packet (218 bytes)
+2025-04-22 09:26:49,285 [DEBUG] Starting to receive response packets
+2025-04-22 09:26:49,321 [DEBUG] Received packet 1: 241 bytes from ('10.30.5.70', 25671)
+2025-04-22 09:26:49,321 [DEBUG] Processed packet 0/1
+2025-04-22 09:26:49,321 [INFO] All 1 packets received
+2025-04-22 09:26:49,321 [INFO] Received complete response (237 bytes)
+2025-04-22 09:26:49,321 [DEBUG] Response content: Command received: 750051288:msg:{"id": 74409627, "command": "START_PLAYBACK", "description": "Starts playback of a given service for a specified time period.", "trigger_time": 1745339229, "payload": {"service_id": 4431, "duration": 60}}
+
+2025-04-22 09:26:49,321 [INFO] 
