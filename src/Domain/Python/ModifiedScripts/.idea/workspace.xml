@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="aadad837-3a36-46a6-a131-48e44d14dfc0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/remote_control_stb_04252025.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../OriginalScripts/remote_control_stb_04252025.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Command/TestPythonCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Command/TestPythonCommand.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/remote_control_stb.py" beforeDir="false" afterPath="$PROJECT_DIR$/remote_control_stb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_15-37-27/packet_12353320_1.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_15-37-27/request_12353320.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_15-37-27/response_12353320.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_15-38-03/packet_90674533_1.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_15-38-03/request_90674533.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_15-38-03/response_90674533.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_15-38-09/packet_50392090_1.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_15-38-09/request_50392090.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_15-38-09/response_50392090.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-12-35/packet_51412262_1.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-12-35/request_51412262.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-12-35/response_51412262.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-18-32/packet_58288696_1.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-18-32/request_58288696.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-18-32/response_58288696.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-19-07/packet_20234640_1.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-19-07/request_20234640.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-19-07/response_20234640.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-19-28/packet_56453918_1.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-19-28/request_56453918.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-19-28/response_56453918.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-24-19/packet_62611537_1.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-24-19/request_62611537.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/raw_2025-04-23_16-24-19/response_62611537.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_15-37-27.jsonl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_15-37-27.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_15-38-03.jsonl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_15-38-03.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_15-38-09.jsonl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_15-38-09.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_16-12-35.jsonl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_16-12-35.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_16-18-32.jsonl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_16-18-32.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_16-19-07.jsonl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_16-19-07.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_16-19-28.jsonl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_16-19-28.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_16-24-19.jsonl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../api_logs/stb_api_2025-04-23_16-24-19.log" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2x9aRokdYyMZLY3X42STNG0ylkk" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-PS-251.23774.466" />
+        <option value="bundled-php-predefined-a98d8de5180a-aaeaa8632555-com.jetbrains.php.sharedIndexes-PS-251.23774.466" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="aadad837-3a36-46a6-a131-48e44d14dfc0" name="Changes" comment="" />
+      <created>1747352737835</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1747352737835</updated>
+      <workItem from="1747352738912" duration="3000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

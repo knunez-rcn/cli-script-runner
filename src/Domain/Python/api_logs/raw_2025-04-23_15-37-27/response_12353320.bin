@@ -1,9 +1,0 @@
-Command received: 750051288:msg:{"id": 12353320, "api_key": "dca15ceb-39c9-49f8-a0a6-a85c7402af6e", "command": "CMD_GET_LIST_EPG", "description": "Get LIST EPG for given service ID", "payload": {"service_id": 4431}}
-
-{
-  "command": "CMD_GET_LIST_EPG",
-  "id": 12353320,
-  "message": "Failed to retrieve EPG List data.",
-  "status": "error",
-  "timestamp": 1745447847141
-}

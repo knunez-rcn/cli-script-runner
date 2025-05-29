@@ -16,6 +16,6 @@
 /.venv
 
 # Project-specific directories
-/src/Domain/Python/ModifiedScripts/Python/api_logs
-/src/Domain/Python/ModifiedScripts/Python/ModifiedScripts
-/src/Domain/Python/ModifiedScripts/Python/OriginalScripts
+src/Domain/Python/ModifiedScripts/Python/api_logs/
+src/Domain/Python/ModifiedScripts/Python/ModifiedScripts/
+src/Domain/Python/ModifiedScripts/Python/OriginalScripts/

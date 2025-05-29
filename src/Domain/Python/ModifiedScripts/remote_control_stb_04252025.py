@@ -9,18 +9,27 @@
 *     is strictly prohibited.
 '''
 
-VERSION = "01.04.2025"
+VERSION = "25.04.2025"
 
 
 '''
 Changes:
+25.04.2025
+
+- Add some colors and types for faster navigation
+
+16.04.2025
+
+- Add CMD_GET_DVR_STATUS
+- Add CMD_SEND_DVR_BUTTON_KEY
+
 01.04.2025
 
 - Add WOL command
 
 28.03.2025
 
-- Add Reboot Command
+- Add CMD_REBOOT_STB
 
 
 12.03.2025
@@ -48,82 +57,23 @@ import gzip
 from io import BytesIO
 import threading
 
-import traceback
-import logging
 
 # Unique STB ID
 device_id = "750051288"
 
 # Static IP Address of STB We are sending message
-device_ip = "10.30.5.148"
-# device_ip = "10.3.1.6"
-
+device_ip = "10.3.0.17"
 # MAC Address of STB to send WOL message
-device_mac = "ac:f4:2c:99:2f:51"
-# device_mac = "00:25:FF:90:1F:C0"
-
-
-# device_id = "750135192"
-# device_ip = "10.50.200.207"
-# device_mac = "00:25:FF:90:5B:CA"
+# device_mac = "ac:f4:2c:99:2f:51"
+device_mac = "00:25:FF:90:1F:C0"
 # Static port - DO NOT CHANGE
 port = 25671
 
 # Pernament API key used for Fanthom
 api_key = "dca15ceb-39c9-49f8-a0a6-a85c7402af6e"
 
-def setup_logging(log_dir="./../api_logs"):
-    """Configure comprehensive logging for API interactions"""
-    # Create log directory if it doesn't exist
-    os.makedirs(log_dir, exist_ok=True)
-
-    # Generate timestamped log files
-    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    log_file = f"{log_dir}/stb_api_{timestamp}.log"
-    json_log_file = f"{log_dir}/stb_api_{timestamp}.jsonl"
-    raw_log_dir = f"{log_dir}/raw_{timestamp}"
-
-    # Create raw data directory
-    os.makedirs(raw_log_dir, exist_ok=True)
-
-    # Configure logger
-    logger = logging.getLogger("stb_api")
-    logger.setLevel(logging.DEBUG)
-
-    # Remove any existing handlers
-    if logger.handlers:
-        logger.handlers.clear()
-
-    # File handler for detailed logs
-    file_handler = logging.FileHandler(log_file)
-    file_handler.setLevel(logging.DEBUG)
-    file_handler.setFormatter(logging.Formatter(
-        '%(asctime)s [%(levelname)s] %(message)s'
-    ))
-    logger.addHandler(file_handler)
-
-    # Console handler for info
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.INFO)
-    console_handler.setFormatter(logging.Formatter(
-        '%(levelname)s: %(message)s'
-    ))
-    logger.addHandler(console_handler)
-
-    # JSON log handler
-    class JsonLogHandler(logging.FileHandler):
-        def emit(self, record):
-            # Only process records with our special attribute
-            if hasattr(record, 'json_data'):
-                with open(self.baseFilename, 'a') as f:
-                    json.dump(record.json_data, f)
-                    f.write('\n')
-
-    json_handler = JsonLogHandler(json_log_file)
-    logger.addHandler(json_handler)
-
-    # Return logger and paths for later use
-    return logger, raw_log_dir
+# Set default directory for screenshots
+output_dir = "./screenshots/"
 
 # Generate a random UUID
 # NOT USED as it is too long.
@@ -198,7 +148,7 @@ cmd_force_ch_switch = {
     "command": "FORCE_CH_SWITCH",
     "description": "Forces a channel switch to a given service.",
     "payload": {
-        "service_id": 4431,
+        "service_id": 146,
     },
 }
 
@@ -218,7 +168,7 @@ cmd_start_ch_play_with_duration = {
     "command": "START_PLAYBACK",
     "description": "Starts playback of a given service for a specified time period.",
     "trigger_time": get_trigger_time(),
-    "payload": {"service_id": 4431, "duration": 60},
+    "payload": {"service_id": 17037, "duration": 60},
 }
 
 cmd_block_ch_playback_with_duration = {
@@ -226,14 +176,14 @@ cmd_block_ch_playback_with_duration = {
     "command": "BLOCK_PLAYBACK",
     "description": "Block playback of a given service for a specified time period.",
     "trigger_time": get_trigger_time(),
-    "payload": {"service_id": 4431, "duration": 60},
+    "payload": {"service_id": 17037, "duration": 60},
 }
 
 cmd_allow_ch_playback = {
     "id": generate_8_digit_integer(),
     "command": "ALLOW_PLAYBACK",
     "description": "Allow playback of a given service immediately.",
-    "payload": {"service_id": 4431},
+    "payload": {"service_id": 17037},
 }
 
 cmd_delete_recording = {
@@ -275,7 +225,7 @@ cmd_get_current_epg = {
     "api_key": api_key,
     "command": "CMD_GET_CURRENT_EPG",
     "description": "Get CURRENT EPG for given service ID",
-    "payload": {"service_id": 4431},
+    "payload": {"service_id": 17037},
 }
 
 cmd_get_current_epg_wo_sid = {
@@ -290,7 +240,7 @@ cmd_get_list_epg = {
     "api_key": api_key,
     "command": "CMD_GET_LIST_EPG",
     "description": "Get LIST EPG for given service ID",
-    "payload": {"service_id": 4431},
+    "payload": {"service_id": 17037},
 }
 
 cmd_epg_search = {
@@ -298,7 +248,7 @@ cmd_epg_search = {
     "api_key": api_key,
     "command": "CMD_GET_SEARCH_EPG",
     "description": "Search in EPG Events title list for a given text. Return array of the eventIds.",
-    "payload": {"epg_title": "internet", "service_id": 4431},
+    "payload": {"epg_title": "internet", "service_id": 17037},
 }
 
 cmd_get_recording_list = {
@@ -352,12 +302,12 @@ cmd_add_timer = {
     "command": "CMD_ADD_TIMER",
     "description": "Add Timer to the timer list",
     "payload": {
-        "service_id": 4431,
-        "eventId": 15903, 
+        "service_id": 17037,
+        "eventId": 15903,
         "recordTimer": True
     },
 }
-    
+
 cmd_set_ch_feed_source = {
     "id": generate_8_digit_integer(),
     "api_key": api_key,
@@ -375,217 +325,138 @@ cmd_get_recording_current_status = {
 
 cmd_hello_stb = {
     "id": generate_8_digit_integer(),
-    "command": "HELLO_DISCOVERY"}
+    "command": "HELLO_DISCOVERY"
+}
 
 cmd_reboot_stb = {
     "id": generate_8_digit_integer(),
     "api_key": api_key,
-    "command": "CMD_REBOOT_STB"}
+    "command": "CMD_REBOOT_STB",
+    "description": "Reboot STB"
+}
+
+cmd_get_dvr_status = {
+    "id": generate_8_digit_integer(),
+    "api_key": api_key,
+    "command": "CMD_GET_DVR_STATUS",
+    "description": "Get information about DVR device"
+}
+
+cmd_send_dvr_button_key = {
+    "id": generate_8_digit_integer(),
+    "api_key": api_key,
+    "command": "CMD_SEND_DVR_BUTTON_KEY",
+    "description": "Send KEY button press to DVR",
+    "payload": {"button_key": "STOP"},
+}
 
 #### END OF FANTHOMS CMD's
 
 def send_message(json_message):
-    logger, raw_log_dir = setup_logging()
     server_address = (device_ip, port)
-    request_id = json_message.get('id', 'unknown')
-    command = json_message.get('command', 'unknown')
-
-    # Log the request
-    logger.info(f"API Request [{request_id}]: Sending {command} to {device_ip}:{port}")
-
-    # Save raw request
-    request_file = f"{raw_log_dir}/request_{request_id}.json"
-    with open(request_file, 'w') as f:
-        json.dump(json_message, f, indent=2)
-
-    # Log structured JSON
-    record = logger.makeRecord(
-        logger.name, logging.INFO, "", 0, "", (), None
-    )
-    record.json_data = {
-        "type": "request",
-        "timestamp": datetime.now().isoformat(),
-        "request_id": request_id,
-        "command": command,
-        "destination": f"{device_ip}:{port}",
-        "payload": json_message
-    }
-    logger.handle(record)
-
-    # Encode and send message
-    combined_message = f"{device_id}:msg:{json.dumps(json_message)}"
+    # Convert JSON message to string and encode
+    combined_message = f"==== {device_id}:msg:{json.dumps(json_message)}"
     encoded_message = combined_message.encode("utf-8")
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     try:
-        logger.info(f"Sending packet ({len(encoded_message)} bytes)")
+        print(f"Sending message to {server_address}")
         sock.sendto(encoded_message, server_address)
 
-        # Set timeout
+        # Set a timeout for receiving the response
         sock.settimeout(5)
 
-        # Receive and log response
-        response_data = receive_large_response(sock, logger, raw_log_dir, request_id)
-
+        # Receive and reassemble the response
+        response_data = receive_large_response(sock)
         if response_data is not None:
-            # Save raw response
-            response_file = f"{raw_log_dir}/response_{request_id}.bin"
-            with open(response_file, 'wb') as f:
-                f.write(response_data)
-
-            logger.info(f"Received complete response ({len(response_data)} bytes)")
-
-            # Process response based on type
-            if response_data.startswith(b"CMD_GET_SCREENSHOT"):
-                save_if_screenshot(response_data, logger, raw_log_dir)
+            header_prefix = b"CMD_GET_SCREENSHOT"
+            # If the response starts with the screenshot header, process it accordingly
+            if response_data.startswith(header_prefix):
+                save_if_screenshot(response_data)
             else:
+                # Otherwise, assume it's a JSON/text response
+                print(f"Received complete response ({len(response_data)} bytes)")
                 try:
-                    response_text = response_data.decode("utf-8")
-                    logger.debug(f"Response content: {response_text}")
-
-                    # Log structured response
-                    record = logger.makeRecord(
-                        logger.name, logging.INFO, "", 0, "", (), None
-                    )
-
-                    try:
-                        response_json = json.loads(response_text)
-                        record.json_data = {
-                            "type": "response",
-                            "timestamp": datetime.now().isoformat(),
-                            "request_id": request_id,
-                            "command": command,
-                            "response_size": len(response_data),
-                            "response": response_json
-                        }
-                    except json.JSONDecodeError:
-                        record.json_data = {
-                            "type": "response_text",
-                            "timestamp": datetime.now().isoformat(),
-                            "request_id": request_id,
-                            "command": command,
-                            "response_size": len(response_data),
-                            "response_text": response_text
-                        }
-
-                    logger.handle(record)
-                    print(response_text)
-
+                    print(response_data.decode("utf-8") + "====")
                 except UnicodeDecodeError:
-                    # Log binary response
-                    logger.error("Response is not valid UTF-8 text")
-                    record = logger.makeRecord(
-                        logger.name, logging.INFO, "", 0, "", (), None
-                    )
-                    record.json_data = {
-                        "type": "binary_response",
-                        "timestamp": datetime.now().isoformat(),
-                        "request_id": request_id,
-                        "command": command,
-                        "response_size": len(response_data),
-                        "response_hex": binascii.hexlify(response_data[:200]).decode() + "..." if len(response_data) > 200 else binascii.hexlify(response_data).decode()
-                    }
-                    logger.handle(record)
+                    print("Received response is not valid UTF-8 text.")
         else:
-            logger.warning("No complete response received")
+            print("No complete response received.")
 
-    except Exception as e:
-        logger.error(f"Error in communication: {str(e)}")
-        logger.debug(traceback.format_exc())
-
-        record = logger.makeRecord(
-            logger.name, logging.ERROR, "", 0, "", (), None
-        )
-        record.json_data = {
-            "type": "error",
-            "timestamp": datetime.now().isoformat(),
-            "request_id": request_id,
-            "command": command,
-            "error": str(e),
-            "traceback": traceback.format_exc()
-        }
-        logger.handle(record)
+    except socket.timeout:
+        print("No response received within the timeout period.")
 
     finally:
         sock.close()
 
-
-def receive_large_response(sock, logger=None, raw_log_dir=None, request_id=None):
-    """Receives and reassembles multi-packet responses with detailed logging"""
+def receive_large_response(sock):
     """
     Receives and reassembles a large UDP response split into multiple packets.
     Each packet is expected to have a header (in ASCII) followed by binary data.
     The header format is assumed to be "seq/total:" where seq and total are integers.
     """
-    if logger is None:
-        logger, raw_log_dir = setup_logging()
-
     received_chunks = {}
     expected_packets = None
-    packet_counter = 0
-
-    logger.debug("Starting to receive response packets")
 
     while True:
         try:
-            packet, addr = sock.recvfrom(65536)
-            packet_counter += 1
-
-            # Save raw packet for debugging
-            if raw_log_dir:
-                packet_file = f"{raw_log_dir}/packet_{request_id}_{packet_counter}.bin"
-                with open(packet_file, 'wb') as f:
-                    f.write(packet)
-
-            # Log packet info
-            logger.debug(f"Received packet {packet_counter}: {len(packet)} bytes from {addr}")
-
-            # Process packet
+            packet, addr = sock.recvfrom(65536)  # receive raw bytes
+            # Check for the special END packet
             if packet == b"END":
-                logger.debug("Received END packet")
+                print("Received END packet. Reassembling response...")
                 break
 
+            # Find the separator (colon) between header and data
             sep_index = packet.find(b":")
             if sep_index == -1:
-                logger.warning(f"Invalid packet format (missing separator)")
+                print(f"Invalid packet format (missing ':'): {packet}")
                 continue
 
-            # Extract header
+            # Extract and decode header
+            header_bytes = packet[:sep_index]
             try:
-                header = packet[:sep_index].decode("utf-8")
-                parts = header.split("/")
+                header = header_bytes.decode("utf-8")
+            except UnicodeDecodeError:
+                print("Failed to decode header")
+                continue
+
+            # Header should be in the format "seq/total"
+            if "/" not in header:
+                print(f"Malformed header: {header}")
+                continue
+
+            parts = header.split("/")
+            if len(parts) != 2:
+                print(f"Invalid header parts: {header}")
+                continue
+
+            try:
                 seq_num = int(parts[0])
                 total_packets = int(parts[1])
-
-                expected_packets = total_packets
-                chunk = packet[sep_index + 1:]
-                received_chunks[seq_num] = chunk
-
-                logger.debug(f"Processed packet {seq_num}/{total_packets}")
-
-                if len(received_chunks) == expected_packets:
-                    logger.info(f"All {expected_packets} packets received")
-                    break
-
-            except Exception as e:
-                logger.warning(f"Error processing packet: {str(e)}")
-                # Save problematic packet for analysis
-                if raw_log_dir:
-                    error_file = f"{raw_log_dir}/error_packet_{request_id}_{packet_counter}.bin"
-                    with open(error_file, 'wb') as f:
-                        f.write(packet)
+            except ValueError:
+                print(f"Invalid header values: {header}")
                 continue
 
+            expected_packets = total_packets
+            # The rest of the packet is the binary chunk.
+            chunk = packet[sep_index + 1:]
+            received_chunks[seq_num] = chunk
+
+            # If we have received all expected packets, we can break.
+            if len(received_chunks) == expected_packets:
+                print("All packets received. Reassembling response...")
+                break
+
         except socket.timeout:
-            logger.warning("Socket timeout while receiving packets")
+            print("Socket timeout while receiving packets.")
             break
 
-    # Reassemble and return full response
     if expected_packets is None or len(received_chunks) != expected_packets:
-        logger.error(f"Incomplete response: {len(received_chunks)}/{expected_packets if expected_packets else 'unknown'} packets received")
+        print("Error: Some packets are missing!")
         return None
 
+    # Reassemble the full response in order of packet sequence
     full_response = b"".join(received_chunks[i] for i in sorted(received_chunks.keys()))
     return full_response
 
@@ -593,7 +464,7 @@ def save_if_screenshot(full_response):
     """
     If full_response starts with 'CMD_GET_SCREENSHOT', then the data is expected to be
     structured as: HEADER + [BMP bytes] + ENDER + [JSON data].
-    
+
     This function:
       - Extracts the BMP data between the header and the end marker.
       - Extracts the JSON data after the end marker.
@@ -604,7 +475,7 @@ def save_if_screenshot(full_response):
     """
     header_prefix = b"CMD_GET_SCREENSHOT"
     ender_marker = b"CMD_GET_SCREENSHOT_END"
-    
+
     if full_response.startswith(header_prefix):
         # Remove header from beginning
         remainder = full_response[len(header_prefix):]
@@ -612,29 +483,29 @@ def save_if_screenshot(full_response):
         if ender_index == -1:
             print("End marker not found in response!")
             return
-        
+
         # Extract screenshot BMP data and JSON part
         screenshot_data = remainder[:ender_index]
         json_data = remainder[ender_index + len(ender_marker):]
-        
+
         try:
             json_str = json_data.decode("utf-8")
             json_obj = json.loads(json_str)
         except Exception as e:
             print("Error decoding JSON data:", e)
             return
-        
+
         # Use the file_name from JSON details if present, otherwise default.
         file_name = "screenshot.bmp"
         if "details" in json_obj and "file_name" in json_obj["details"]:
             file_name = json_obj["details"]["file_name"]
-        
+
         os.makedirs(output_dir, exist_ok=True)
         file_path = os.path.join(output_dir, file_name)
         with open(file_path, "wb") as f:
             f.write(screenshot_data)
         print(f"Screenshot saved as {file_path}")
-        
+
         print("Received JSON data:")
         print(json.dumps(json_obj, indent=2))
     else:
@@ -673,81 +544,99 @@ message_options = {
     23: cmd_get_current_epg_wo_sid,
     24: cmd_allow_ch_playback,
     25: cmd_hello_stb,
-    26: cmd_reboot_stb
+    26: cmd_reboot_stb,
+    27: cmd_get_dvr_status,
+    28: cmd_send_dvr_button_key
 }
 
-            
+
 def main():
     # ANSI color codes
-    RESET = "\033[0m"   # Reset to default color
-    BLUE = "\033[94m"   # Blue color for the header
-    RED = "\033[91m"    # Red color for [NOT READY] lines
-    BOLD = "\033[1m"    # Bold text
+    RESET = "\033[0m"
+    BLUE = "\033[94m"    # Header
+    RED = "\033[91m"     # [NOT READY] or error
+    BOLD = "\033[1m"
 
-    # Print a stylish header in blue
+    # Category-specific colors
+    DVR_COLOR = "\033[92m"   # Green
+    TOOL_COLOR = "\033[93m"  # Yellow
+    DVB_COLOR = "\033[96m"   # Cyan
+    EPG_COLOR = "\033[95m"   # Magenta
+
+    # Header
     print(f"{BLUE}{'='*60}")
-    print(f"{BOLD}      🚀 Welcome to the Command Control Tool by TiViCon 🚀{RESET}")
+    print(f"{BOLD}      ðŸš€ Welcome to the Command Control Tool by TiViCon ðŸš€{RESET}")
     print(f"{BLUE}{'='*60}")
     print(f"{BOLD}      Created by TiViCon Co Ltd.{RESET}")
-    print(f"      🌐 https://www.tivicon.com")
-    print(f"      ✉️  info@tivicon.com")
-    print(f"      © 2024 - 2025. All rights reserved.")
+    print(f"      ðŸŒ https://www.tivicon.com")
+    print(f"      âœ‰ï¸  info@tivicon.com")
+    print(f"      Â© 2024 - 2025. All rights reserved.")
     print(f"{BLUE}{'='*60}{RESET}\n")
 
-    # Display options
-    print("📌 Choose a command to send:\n")
+    print("ðŸ“Œ Choose a command to send:\n")
 
     options = [
-        (1, "CH_DOWN"),
-        (2, "CH_UP"),
-        (3, "FORCE CHANNEL SWITCH"),
-        (4, "FORCE RECORD EVENT"),
-        (5, "START PLAYBACK"),
-        (6, "BLOCK PLAYBACK for Service ID"),
-        (7, "DELETE RECORDING"),
-        (8, "FORCE SET CH SOURCE"),
-        (9, "GET SCREENSHOT"),
-        (10, "GET RECORDING CURRENT PLAYBACK STATUS"),
-        (11, "GET RECORDING LIST"),
-        (12, "GET TUNER STATUS"),
-        (13, "SEND BUTTON PRESS"),
-        (14, "GET SHORT RECORDING LIST"),
-        (15, "PLAY RECORDING"),
-        (16, "GET CURRENT EPG for Service ID"),
-        (17, "GET TIMER LIST"),
-        (18, "REMOVE TIMER"),
-        (19, "ADD TIMER"),
-        (20, "UPDATE MOVIE 'protection' flag"),
-        (21, "SEARCH EPG FOR TITLE for Service ID"),
-        (22, "GET LIST EPG"),
-        (23, "GET CURRENT EPG (current playing)"),
-        (24, "ALLOW PLAYBACK FOR for Service ID"),
-        (25, "HELLO DISCOVERY"),
-        (26, "REBOOT STB"),
-        (27, "SEND Wake-On-Lan package")
+        (0, "[TOOL] SEND Wake-On-Lan package"),
+        (1, "[DVB] CH_DOWN"),
+        (2, "[DVB] CH_UP"),
+        (3, "[DVB] FORCE CHANNEL SWITCH"),
+        (4, "[DVB] FORCE RECORD EVENT"),
+        (5, "[DVB] START PLAYBACK"),
+        (6, "[DVB] BLOCK PLAYBACK for Service ID"),
+        (7, "[DVR] DELETE RECORDING"),
+        (8, "[TOOL] FORCE SET CH SOURCE"),
+        (9, "[TOOL] GET SCREENSHOT"),
+        (10, "[DVR] GET RECORDING CURRENT PLAYBACK STATUS"),
+        (11, "[DVR] GET RECORDING LIST"),
+        (12, "[DVB] GET TUNER STATUS"),
+        (13, "[TOOL] SEND BUTTON PRESS"),
+        (14, "[DVR] GET SHORT RECORDING LIST"),
+        (15, "[DVR] PLAY RECORDING"),
+        (16, "[EPG] GET CURRENT EPG for Service ID"),
+        (17, "[EPG] GET TIMER LIST"),
+        (18, "[EPG] REMOVE TIMER"),
+        (19, "[EPG] ADD TIMER"),
+        (20, "[TOOL] UPDATE MOVIE 'protection' flag"),
+        (21, "[EPG] SEARCH EPG FOR TITLE for Service ID"),
+        (22, "[EPG] GET LIST EPG"),
+        (23, "[EPG] GET CURRENT EPG (current playing)"),
+        (24, "[DVB] ALLOW PLAYBACK FOR for Service ID"),
+        (25, "[TOOL] HELLO DISCOVERY"),
+        (26, "[TOOL] REBOOT STB"),
+        (27, "[DVR] GET DVR STORAGE DEVICE STATUS"),
+        (28, "[TOOL] SEND DVR BUTTON PRESS"),
     ]
 
-    # Print commands with colored "[NOT READY]" lines
+    # Print commands with category colors
     for num, cmd in options:
-        if "[NOT READY]" in cmd:
-            print(f"{RED}❌ {num:<4}\t{cmd}{RESET}")
+        if "[DVR]" in cmd:
+            color = DVR_COLOR
+        elif "[TOOL]" in cmd:
+            color = TOOL_COLOR
+        elif "[DVB]" in cmd:
+            color = DVB_COLOR
+        elif "[EPG]" in cmd:
+            color = EPG_COLOR
         else:
-            print(f"✅ {num:<4}\t{cmd}")
+            color = RESET
+
+        if "[NOT READY]" in cmd:
+            print(f"{RED}âŒ {num:<4}\t{cmd}{RESET}")
+        else:
+            print(f"{color}âœ… {num:<4}\t{cmd}{RESET}")
 
     try:
-        choice = int(input("\n\nEnter the number of the command to send (1-27): "))
-        if choice == 27:
+        choice = int(input("\n\nEnter the number of the command to send (0-28): "))
+        if choice == 0:
             send_wol(device_mac)
+        elif choice in message_options:
+            selected_message = message_options[choice]
+            send_message(selected_message)
         else:
-            if choice in message_options:
-                selected_message = message_options[choice]
-                send_message(selected_message)
-            else:
-                print("Invalid choice. Please select a number between 1 and 27.")
-    
+            print(f"{RED}Invalid choice. Please select a number between 0 and 28.{RESET}")
     except ValueError:
-        print("Invalid input. Please enter a valid number : " + ValueError)
+        print(f"{RED}Invalid input. Please enter a valid number.{RESET}")
+
 
 if __name__ == "__main__":
-    output_dir = "./screenshots/"  # Directory to save the received file
     main()
